@@ -2,10 +2,20 @@ import discord
 from discord.ext import commands
 from random import randint as rd
 from discord import SelectOption
-import asyncio
-import json
+import psycopg2
+from psycopg2 import sql
 
 adm = 614548307187990651
+
+try:
+    conexao = psycopg2.connect(database = "discord", host = 'pg-198bee84-discord-gb.d.aivencloud.com', user = 'avnadmin', password = 'AVNS_BPnCotxyGQ_PZW7nyV8', port = '14647')
+    bd = conexao.cursor()
+    bd.execute("SELECT current_database();") 
+
+    print("Banco conectado:", bd.fetchone()[0])
+
+except Exception as e:
+    print("Erro ao conectar:", e)
 
 permissoes = discord.Intents.all()
 bot = commands.Bot(command_prefix='r!', intents=permissoes)
@@ -14,7 +24,7 @@ permissoes.members = True
 
 @bot.command()
 async def roxy(ctx):
-    await ctx.reply("OI EU SOU A ROXY")
+    await ctx.reply("oi eu sou a Roxy")
 
 @bot.command()
 async def oracao(ctx):
@@ -42,10 +52,9 @@ async def oracao(ctx):
     vigia meu sono com teu cajado em mãos.
     Assim seja.""")
 
-
-with open("bot.json", "r") as jsonBot:
-    dados = json.load(jsonBot)
-
-token = dados["bot"]["token"]
+@bot.command()
+async def edit(ctx):
+    with open("assets/videos/editRoxy.mp4", "rb") as f:
+        await ctx.reply("EDIT DA DEUSA ROXY:", file=discord.File(f, "editRoxy.mp4"))
 
 bot.run("MTM5OTc2MzAwNDQwMDM0MTAxNA.GxGiVk.jGynQFoA1LugMGkei-7I_u_-fcaNaQaM6Wx0w8")
