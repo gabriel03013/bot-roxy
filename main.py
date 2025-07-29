@@ -28,6 +28,7 @@ async def roxy(ctx):
 
 @bot.command()
 async def oracao(ctx):
+    arquivo = discord.File("assets/images/rudeusCalcinha.jpeg", filename="rudeusCalcinha.jpeg")
     await ctx.reply("""
     Oração Noturna à Deusa Roxy Migurdia
 
@@ -50,11 +51,11 @@ async def oracao(ctx):
 
     Roxy, minha guia, minha mestra, minha Deusa...
     vigia meu sono com teu cajado em mãos.
-    Assim seja.""")
+    Assim seja.""", file=arquivo)
 
 @bot.command()
 async def edit(ctx):
     with open("assets/videos/editRoxy.mp4", "rb") as f:
         await ctx.reply("EDIT DA DEUSA ROXY:", file=discord.File(f, "editRoxy.mp4"))
 
-bot.run("MTM5OTc2MzAwNDQwMDM0MTAxNA.GxGiVk.jGynQFoA1LugMGkei-7I_u_-fcaNaQaM6Wx0w8")
+bot.run("MTM5OTc2MzAwNDQwMDM0MTAxNA.GNqiR2.cMsXePMopBD-aQM6CtSZJ-PUw2Pv7q3eYs_3Go")
