@@ -48,4 +48,4 @@ with open("bot.json", "r") as jsonBot:
 
 token = dados["bot"]["token"]
 
-bot.run(token)
+bot.run("MTM5OTc2MzAwNDQwMDM0MTAxNA.GxGiVk.jGynQFoA1LugMGkei-7I_u_-fcaNaQaM6Wx0w8")
