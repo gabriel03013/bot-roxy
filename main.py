@@ -4,6 +4,8 @@ from random import randint as rd
 from discord import SelectOption
 import psycopg2
 from psycopg2 import sql
+from dotenv import load_dotenv
+import os
 
 adm = 614548307187990651
 
@@ -58,4 +60,6 @@ async def edit(ctx):
     with open("assets/videos/editRoxy.mp4", "rb") as f:
         await ctx.reply("EDIT DA DEUSA ROXY:", file=discord.File(f, "editRoxy.mp4"))
 
-bot.run("MTM5OTc2MzAwNDQwMDM0MTAxNA.GNqiR2.cMsXePMopBD-aQM6CtSZJ-PUw2Pv7q3eYs_3Go")
+load_dotenv()
+token = os.getenv("TOKEN")
+bot.run(token)
